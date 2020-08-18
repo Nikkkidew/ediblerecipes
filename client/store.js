@@ -8,3 +8,4 @@ const store = createStore(reducers, composeWithDevTools());
 console.log(store.getState());
 
 export default store;
+

@@ -2,18 +2,15 @@
 import React, { Component } from "react";
 import "../styles/App.css"
 // import '../src/App.css';
-<<<<<<< HEAD
-import axios from 'axios';
-import { withCookies } from 'react-cookie';
+import axios from "axios";
 
-class Login extends Component {
+export default class Login extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			//   name: '',
-			password: '',
-			email: '',
-			// isLogginIn: false,
+			password: "",
+			email: "",
 		};
 		// this.onChangeUsername = this.onChangeUsername.bind(this);
 		// this.onChangePassword = this.onChangePassword.bind(this);
@@ -21,24 +18,6 @@ class Login extends Component {
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 	}
-=======
-import axios from "axios";
-
-export default class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      //   name: '',
-      password: "",
-      email: "",
-    };
-    // this.onChangeUsername = this.onChangeUsername.bind(this);
-    // this.onChangePassword = this.onChangePassword.bind(this);
-    // this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
->>>>>>> df4b3c7f365bbf1cb44e5c0f1276685c8c0f3aa3
 
 	onChange (e) {
 		const name = e.target.name;
@@ -49,6 +28,18 @@ export default class Login extends Component {
 		});
 	}
 
+	//   onChangePassword(e) {
+	//     this.setState({
+	//       password: e.target.value,
+	//     });
+	//   }
+
+	// onChangeEmail (e) {
+	// 	this.setState({
+	// 		email: e.target.value
+	// 	})
+	// }
+
 	onSubmit (e) {
 		e.preventDefault();
 
@@ -57,38 +48,30 @@ export default class Login extends Component {
 			email: this.state.email,
 		};
 
-		console.log('user in login', user);
+		console.log("user in login", user);
 
 		// axios
 		//   .post('http://localhost:3000/login', user)
 		//   .then((res) => console.log(res.data));
 
-<<<<<<< HEAD
-		fetch('http://localhost:3000/login', {
-			method: 'POST',
+		fetch("http://localhost:3000/login", {
+			method: "POST",
 			body: JSON.stringify(user),
 			// body: user,
-			headers: { 'Content-Type': 'application/json' },
-			credentials: 'include',
+			headers: { "Content-Type": "application/json" },
+			credentials: "include",
 		})
 			.then((response) => response.json())
-			.then((data) => console.log('FETCH data', data))
-			.catch((err) => console.log('ERROR in login fetch', err));
-		console.log("COOKIES IS HERE:", this.props.cookies)
-=======
-    console.log("user in login", user);
->>>>>>> df4b3c7f365bbf1cb44e5c0f1276685c8c0f3aa3
+			.then((data) => console.log("FETCH data", data))
+			.catch((err) => console.log("ERROR in login fetch", err));
 
+		this.props.history.push("/recipesform");
 		// this command above returns you to the homepage
-		if (this.props.cookies.cookies.loggedIn) {
-			this.props.history.push('/recipesform');
-		}
 	}
 
-<<<<<<< HEAD
 	render () {
 		return (
-			<div style={{ marginTop: 20 }}>
+			<div classname="loginpage" style={{ marginTop: 20 }}>
 				<h2>Login</h2>
 				<form onSubmit={this.onSubmit}>
 					<div className="form-group">
@@ -101,38 +84,6 @@ export default class Login extends Component {
 							onChange={this.onChange}
 						/>
 					</div>
-=======
-    fetch("http://localhost:3000/login", {
-      method: "POST",
-      body: JSON.stringify(user),
-      // body: user,
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    })
-      .then((response) => response.json())
-      .then((data) => console.log("FETCH data", data))
-      .catch((err) => console.log("ERROR in login fetch", err));
-
-    this.props.history.push("/recipesform");
-    // this command above returns you to the homepage
-  }
-
-  render() {
-    return (
-      <div classname="loginpage"style={{ marginTop: 20 }}>
-        <h2>Login</h2>
-        <form onSubmit={this.onSubmit}>
-          <div className="form-group">
-            <label>Email: </label>
-            <input
-              name="email"
-              type="text"
-              className="form-control"
-              value={this.state.email}
-              onChange={this.onChange}
-            />
-          </div>
->>>>>>> df4b3c7f365bbf1cb44e5c0f1276685c8c0f3aa3
 
 					<div className="form-group">
 						<label>Password </label>
@@ -164,4 +115,3 @@ export default class Login extends Component {
 	}
 }
 
-export default withCookies(Login)

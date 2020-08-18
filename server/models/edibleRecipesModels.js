@@ -2,11 +2,11 @@ const { Pool } = require('pg');
 
 //postgres://nagsauar:3uEIYk1GNWY8XPHcw61ZsQErEvPKtr2d@rajje.db.elephantsql.com:5432/nagsauar
 const PG_URI =
-  'postgres://nagsauar:3uEIYk1GNWY8XPHcw61ZsQErEvPKtr2d@rajje.db.elephantsql.com:5432/nagsauar';
+	'postgres://nagsauar:3uEIYk1GNWY8XPHcw61ZsQErEvPKtr2d@rajje.db.elephantsql.com:5432/nagsauar';
 
 // create a new pool here using the connection string above
 const pool = new Pool({
-  connectionString: PG_URI,
+	connectionString: PG_URI,
 });
 
 const test = `INSERT INTO public.users (name, password, email) VALUES ('hello', 'hello', 'hello@hello.hello')`;
@@ -22,8 +22,8 @@ pool.query(test);
 // which is a function that returns the invocation of pool.query() after logging the query
 // This will be required in the controllers to be the access point to the database
 module.exports = {
-  query: (text, params, callback) => {
-    // console.log("PostgresQL Database establish", text);
-    return pool.query(text, params, callback);
-  },
+	query: (text, params, callback) => {
+		// console.log("PostgresQL Database establish", text);
+		return pool.query(text, params, callback);
+	},
 };
