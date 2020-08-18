@@ -37,6 +37,7 @@ cookieController.setSSIDCookie = (req, res, next) => {
 
 	res.cookie('ssid', token, { httpOnly: true, path: '/' });
 	res.cookie('loggedIn', true);
+	res.cookie('id', id);
 	console.log('Successfully set SSID');
 	return next();
 };
